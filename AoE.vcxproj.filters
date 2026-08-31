@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{1814c41e-30b4-47a9-9f72-131004a89288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\File">
+      <UniqueIdentifier>{a9b21656-e8cc-40f5-9a7f-4d62452e9488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Scene">
+      <UniqueIdentifier>{fe2f4e05-79bb-46e4-8acc-44a4e635dcb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\BGM">
+      <UniqueIdentifier>{222ffe82-df47-43d6-8327-af5a517d5b44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Fps">
+      <UniqueIdentifier>{df93e0dc-2a5e-4c77-9dc7-b363ae875abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Font">
+      <UniqueIdentifier>{c4224549-f6d0-4746-9689-ce933299872f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Resource">
+      <UniqueIdentifier>{5f17f031-0183-4af4-aa17-677b76c8d83d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Application.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\SceneManager.cpp">
+      <Filter>Manager\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Fps.cpp">
+      <Filter>Manager\Fps</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SceneSuper.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\FileManager.h">
+      <Filter>Manager\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\FileSuper.h">
+      <Filter>Manager\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\ImageFile.h">
+      <Filter>Manager\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SoundFile.h">
+      <Filter>Manager\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\ScreenFile.h">
+      <Filter>Manager\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\FontFile.h">
+      <Filter>Manager\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SceneManager.h">
+      <Filter>Manager\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\BGMManager.h">
+      <Filter>Manager\BGM</Filter>
+    </ClInclude>
+    <ClInclude Include="Fps.h">
+      <Filter>Manager\Fps</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Fonts.h">
+      <Filter>Manager\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\ResourceManager.h">
+      <Filter>Manager\Resource</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
