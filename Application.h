@@ -10,8 +10,8 @@ class ParticleManager;
 class Application
 {
 public:
-	static constexpr int SCREEN_WID = 720; // ゲーム画面の横サイズ
-	static constexpr int SCREEN_HIG = 640; // ゲーム画面の縦サイズ
+	static constexpr int SCREEN_WID = 1920; // ゲーム画面の横サイズ
+	static constexpr int SCREEN_HIG = 1080; // ゲーム画面の縦サイズ
 
 	Application();
 	~Application();

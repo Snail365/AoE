@@ -3,6 +3,7 @@
 #include "SceneManager.h"
 #include "FileManager.h"
 #include "Fps.h"
+#include "InputManager.h"
 
 //constexpr auto DEBUG_PARTICLE_PATH = "Resource/ParticleJsonData/parametera.json";
 
@@ -13,13 +14,13 @@
 Application::Application()
 {
 	SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8);
-	SetWindowText("カーレース");
+	SetWindowText("2.5D AoE Game");
 	//SetWindowSizeChangeEnableFlag(TRUE, TRUE);
 	//SetDoubleStartValidFlag(TRUE);
 	//SetAlwaysRunFlag(TRUE);
 
 	SetGraphMode(SCREEN_WID, SCREEN_HIG, 32);
-	ChangeWindowMode(true);
+	ChangeWindowMode(false);
 
 //#ifdef _DEBUG
 //	SetGraphMode(SCREEN_WID - 100, SCREEN_HIG - 100, 32);
@@ -32,13 +33,20 @@ Application::Application()
 //	Live2D_SetCubism4CoreDLLPath(TEXT("CubismSdkForNative-5-r.4.1/Core/dll/windows/x86/Live2DCubismCore.dll"));
 //#endif
 
-	DxLib_Init();
+	if (DxLib_Init() == -1)
+	{
+		return;
+	}
+
+	SetUseZBuffer3D(TRUE);
+	SetWriteZBuffer3D(TRUE);
+
+	// 一旦ライティングを無効化
+	SetUseLighting(TRUE);
+
+
 	fileMng = std::make_unique<FileManager>();
 	sceneMng = std::make_unique<SceneManager>(*fileMng);
-	// デバッグ----------------------------------------------------
-	//pMng = std::make_unique<ParticleManager>(*fileMng);
-	//pMng->RegisterConfig(DEBUG_PARTICLE_PATH);
-	//------------------------------------------------------------
 }
 
 Application::~Application()
@@ -58,6 +66,8 @@ void Application::Run()
 	{
 		SetDrawScreen(DX_SCREEN_BACK);
 		ClearDrawScreen();
+
+		InputManager::GetInstance().Update();
 
 		fps.Update();
 		Update();

@@ -137,25 +137,48 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AoEBox.cpp" />
+    <ClCompile Include="AoECircle.cpp" />
+    <ClCompile Include="AoEFan.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Camera3D.cpp" />
     <ClCompile Include="Fps.cpp" />
+    <ClCompile Include="GameSystemManager.cpp" />
+    <ClCompile Include="KeyConfig.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager\InputManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="SceneGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionID.h" />
+    <ClInclude Include="AoEBase.h" />
+    <ClInclude Include="AoEBox.h" />
+    <ClInclude Include="AoECircle.h" />
+    <ClInclude Include="AoEFan.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Camera3D.h" />
+    <ClInclude Include="EntityData.h" />
     <ClInclude Include="Fps.h" />
+    <ClInclude Include="GameSystemManager.h" />
+    <ClInclude Include="KeyConfig.h" />
     <ClInclude Include="Manager\BGMManager.h" />
     <ClInclude Include="Manager\FileManager.h" />
     <ClInclude Include="Manager\FileSuper.h" />
     <ClInclude Include="Manager\FontFile.h" />
     <ClInclude Include="Manager\Fonts.h" />
     <ClInclude Include="Manager\ImageFile.h" />
+    <ClInclude Include="Manager\InputManager.h" />
     <ClInclude Include="Manager\ResourceManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Manager\SceneSuper.h" />
     <ClInclude Include="Manager\ScreenFile.h" />
     <ClInclude Include="Manager\SoundFile.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="SceneGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,16 +5,14 @@
 #include "SceneManager.h"
 #include "FileManager.h"
 
-#include "SceneResult.h"
 #include "SceneGame.h"
-#include "SceneTitle.h"
 
 SceneManager::SceneManager(FileManager& fileMng) : fileMng_(fileMng)
 {
 	transition_.state = TransitionState::SwitchScene;
 	transition_.timer = 0.0f;
-	transition_.duration = 45.0f;
-	transition_.nextSceneID = SceneSuper::SceneID::TITLE;
+	transition_.duration = 0.0f;
+	transition_.nextSceneID = SceneSuper::SceneID::GAME;
 	ChangeScene(transition_.nextSceneID);
 }
 
@@ -117,14 +115,14 @@ std::unique_ptr<SceneSuper> SceneManager::CreateScene(SceneSuper::SceneID sceneI
 {
 	switch (sceneID)
 	{
-		case SceneSuper::SceneID::TITLE:
-			return std::make_unique<SceneTitle>(fileMng_, *this);
+		//case SceneSuper::SceneID::TITLE:
+		//	return std::make_unique<SceneTitle>(fileMng_, *this);
 		//case SceneSuper::SceneID::STAGE_SELECT:
 		//	return std::make_unique<SceneStageSelect>(fileMng_, *this, _remoteIp);
 		case SceneSuper::SceneID::GAME:
 			return std::make_unique<SceneGame>(fileMng_, *this);
-		case SceneSuper::SceneID::RESULT:
-			return std::make_unique<SceneResult>(fileMng_, *this);
+		//case SceneSuper::SceneID::RESULT:
+		//	return std::make_unique<SceneResult>(fileMng_, *this);
 		//case SceneSuper::SceneID::PAUSE:
 		//	return std::make_unique<ScenePause>(fileMng_, *this, _remoteIp);
 		default:

@@ -1,0 +1,14 @@
+﻿# ActionIDを追加するときはStringToActionIDも追加すること。
+# アクション名(ActionIDに登録されているID), デバイス(InputType), キーコード
+# InputTypeはKeyConfig.hに記載
+# キーコードはInputManager.hに記載
+
+MoveH, Keyboard, KEY_INPUT_D, 1.0
+MoveH, Keyboard, KEY_INPUT_A, -1.0
+MoveH, GamepadButton, Pad_Right, 1.0
+MoveH, GamepadButton, Pad_Left, -1.0
+
+MoveV, Keyboard, KEY_INPUT_W, 1.0
+MoveV, Keyboard, KEY_INPUT_S, -1.0
+MoveV, GamepadButton, Pad_Up, -1.0
+MoveV, GamepadButton, Pad_Down, 1.0
