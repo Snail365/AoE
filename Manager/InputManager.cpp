@@ -39,8 +39,8 @@ void InputManager::DrawDebug(int x, int y) const
 	{
 		int dxNo = no + 1;
 		// パッドが接続されているか確認
-		char deviceName[260];
-		char productName[260];
+		char deviceName[1024];
+		char productName[1024];
 		if (GetJoypadName(dxNo, &deviceName[0], &productName[0]) == -1) continue;
 
 		int type = GetJoypadType(dxNo);
@@ -232,7 +232,7 @@ float InputManager::GetMouseAxisValue(MouseAxis axis) const
 	{
 		int dx = mouseX - prevMouseX;
 		int dy = mouseY - prevMouseY;
-		return sqrtf(dx * dx + dy * dy);
+		return sqrtf(static_cast<float>(dx * dx + dy * dy));
 	}
 	return 0.0f;
 }
@@ -250,14 +250,14 @@ float InputManager::GetPadAxisValue(PadAxis axis, int padNo) const
 			{
 				int dx = padLX[padNo] - prevPadLX[padNo];
 				int dy = padLY[padNo] - prevPadLY[padNo];
-				rawValue = (int)sqrtf(dx * dx + dy * dy);
+				rawValue = (int)(sqrtf((float)(dx * dx + dy * dy)));
 				break;
 			}
 		case PadAxis::Pad_R_Dist:
 			{
 				int dx = padRX[padNo] - prevPadRX[padNo];
 				int dy = padRY[padNo] - prevPadRY[padNo];
-				rawValue = (int)sqrtf(dx * dx + dy * dy);
+				rawValue = (int)(sqrtf((float)(dx * dx + dy * dy)));
 				break;
 			}
 	}

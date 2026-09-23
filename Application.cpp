@@ -4,6 +4,7 @@
 #include "FileManager.h"
 #include "Fps.h"
 #include "InputManager.h"
+#include "ImGuiManager.h"
 
 //constexpr auto DEBUG_PARTICLE_PATH = "Resource/ParticleJsonData/parametera.json";
 
@@ -13,6 +14,8 @@
 
 Application::Application()
 {
+	SetUseDirect3D11(TRUE);
+
 	SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8);
 	SetWindowText("2.5D AoE Game");
 	//SetWindowSizeChangeEnableFlag(TRUE, TRUE);
@@ -32,11 +35,14 @@ Application::Application()
 //#else
 //	Live2D_SetCubism4CoreDLLPath(TEXT("CubismSdkForNative-5-r.4.1/Core/dll/windows/x86/Live2DCubismCore.dll"));
 //#endif
-
 	if (DxLib_Init() == -1)
 	{
 		return;
 	}
+
+	SetMouseDispFlag(TRUE);
+
+	ImGuiManager::GetInstance().Init();
 
 	SetUseZBuffer3D(TRUE);
 	SetWriteZBuffer3D(TRUE);
@@ -54,6 +60,9 @@ Application::~Application()
 	// デストラクト明示
 	sceneMng.reset();
 	fileMng.reset();
+
+	ImGuiManager::GetInstance().Shutdown();
+
 	DxLib_End();
 }
 

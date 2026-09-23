@@ -109,7 +109,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>c:\DxLib;$(ProjectDir);$(ProjectDir)Manager</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>c:\DxLib;$(ProjectDir);$(ProjectDir)Manager;$(ProjectDir)ImGui;$(ProjectDir)ImGui/backends</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -127,7 +127,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>c:\DxLib;$(ProjectDir);$(ProjectDir)Manager</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>c:\DxLib;$(ProjectDir);$(ProjectDir)Manager;$(ProjectDir)ImGui;$(ProjectDir)ImGui/backends</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -142,14 +142,23 @@
     <ClCompile Include="AoEFan.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera3D.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fps.cpp" />
-    <ClCompile Include="GameSystemManager.cpp" />
+    <ClCompile Include="ImGui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ImGui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_tables.cpp" />
+    <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="KeyConfig.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager\GameSystemManager.cpp" />
+    <ClCompile Include="Manager\ImGuiManager.cpp" />
     <ClCompile Include="Manager\InputManager.cpp" />
+    <ClCompile Include="Manager\RenderManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="NavGrid.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="SceneGame.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,26 +168,39 @@
     <ClInclude Include="AoECircle.h" />
     <ClInclude Include="AoEFan.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BehaviorTree.h" />
     <ClInclude Include="Camera3D.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EntityData.h" />
     <ClInclude Include="Fps.h" />
-    <ClInclude Include="GameSystemManager.h" />
+    <ClInclude Include="ImGui\backends\imgui_impl_dx11.h" />
+    <ClInclude Include="ImGui\backends\imgui_impl_win32.h" />
+    <ClInclude Include="ImGui\imconfig.h" />
+    <ClInclude Include="ImGui\imgui.h" />
+    <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="ImGui\imstb_rectpack.h" />
+    <ClInclude Include="ImGui\imstb_textedit.h" />
+    <ClInclude Include="ImGui\imstb_truetype.h" />
     <ClInclude Include="KeyConfig.h" />
     <ClInclude Include="Manager\BGMManager.h" />
     <ClInclude Include="Manager\FileManager.h" />
     <ClInclude Include="Manager\FileSuper.h" />
     <ClInclude Include="Manager\FontFile.h" />
     <ClInclude Include="Manager\Fonts.h" />
+    <ClInclude Include="Manager\GameSystemManager.h" />
     <ClInclude Include="Manager\ImageFile.h" />
+    <ClInclude Include="Manager\ImGuiManager.h" />
     <ClInclude Include="Manager\InputManager.h" />
+    <ClInclude Include="Manager\RenderManager.h" />
     <ClInclude Include="Manager\ResourceManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Manager\SceneSuper.h" />
     <ClInclude Include="Manager\ScreenFile.h" />
     <ClInclude Include="Manager\SoundFile.h" />
+    <ClInclude Include="NavGrid.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="RenderManager.h" />
     <ClInclude Include="SceneGame.h" />
+    <ClInclude Include="WeaponData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

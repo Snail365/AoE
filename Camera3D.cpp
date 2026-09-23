@@ -1,4 +1,5 @@
 ﻿#include "Camera3D.h"
+#include <cmath>
 
 Camera3D::Camera3D()
 {
@@ -6,16 +7,43 @@ Camera3D::Camera3D()
     // 平行投影（パースを切りクォータービューにする）
 }
 
-void Camera3D::Update(const VECTOR& targetPos)
+void Camera3D::Update(const VECTOR& targetPos, float deltaTime)
 {
-    targetPos_ = targetPos;
-    constexpr float distance = 300.0f;
-    VECTOR cameraPos = VGet(
-        targetPos_.x - distance,
-        targetPos_.y + distance * 1.2f, // 見下ろし角度の調整
-        targetPos_.z - distance
-    );
-    SetCameraPositionAndTarget_UpVecY(cameraPos, targetPos_);
+    if (!isInitialized_)
+    {
+        currentTargetPos_ = targetPos;
+        isInitialized_ = true;
+    }
+
+    // 線形補間(e^-kdtでフレーム対応)
+    float lerpFactor = 1.0f - expf(-followSpeed_ * deltaTime);
+    VECTOR diff = VSub(targetPos, currentTargetPos_);
+    currentTargetPos_ = VAdd(currentTargetPos_, VScale(diff, lerpFactor));
+
+    VECTOR shakeOffset = VGet(0.0f, 0.0f, 0.0f);
+
+    if (shakeTimer_ > 0.0f)
+    {
+        shakeTimer_ -= deltaTime;
+        float progress = shakeTimer_ / shakeDuration_; // 収束
+        float currentIntensity = shakeIntensity_ * progress;
+
+        shakeOffset.x = ((rand() % 100) / 50.0f - 1.0f) * currentIntensity;
+        shakeOffset.y = ((rand() % 100) / 50.0f - 1.0f) * currentIntensity;
+        shakeOffset.z = ((rand() % 100) / 50.0f - 1.0f) * currentIntensity;
+    }
+
+    VECTOR finalTarget = VAdd(currentTargetPos_, shakeOffset);
+    VECTOR eye = VAdd(finalTarget, offset_);
+
+    SetCameraPositionAndTarget_UpVecY(eye, finalTarget);
+}
+
+void Camera3D::AddShake(float intensity, float duration)
+{
+    shakeIntensity_ = intensity;
+    shakeDuration_ = duration;
+    shakeTimer_ = duration;
 }
 
 VECTOR Camera3D::ConvertInputToWorldVector(float inputX, float inputZ) const
@@ -35,4 +63,13 @@ VECTOR Camera3D::ConvertInputToWorldVector(float inputX, float inputZ) const
         worldDir.z /= len;
     }
     return worldDir;
+}
+
+void Camera3D::UpdateEffects(float deltaTime)
+{
+}
+
+void Camera3D::CameraReset()
+{
+    isInitialized_ = false;
 }

@@ -3,6 +3,10 @@
 #include "Camera3D.h"
 #include "GameSystemManager.h"
 #include "RenderManager.h"
+#include "NavGrid.h"
+
+#include <memory>
+#include <vector>
 
 class SceneGame :
     public SceneSuper
@@ -15,9 +19,15 @@ public:
     void TransitionIn(float t) override;
 	void TransitionOut(float t) override;
 
+    void DebugUIDraw();
+
 private:
     Camera3D camera_;
-    GameSystemManager systemMng_;
-    RenderManager renderMng_;
+    std::unique_ptr<GameSystemManager> systemMng_;
+    std::unique_ptr<RenderManager> renderMng_;
+
+	bool isShopOpen_ = false;
+
+    bool showNavMesh_ = false; // ImGuiと連動する描画フラグ
 };
 

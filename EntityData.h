@@ -27,6 +27,7 @@ struct BulletData
     VECTOR pos = VGet(0.0f, 0.0f, 0.0f);
     VECTOR dir = VGet(0.0f, 0.0f, 1.0f);
     float speed = 1500.0f;
+    int power = 25;
     float maxDistance = 400.0f;
     float movedDistance = 0.0f;
     bool isAlive = true;

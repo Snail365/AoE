@@ -28,9 +28,6 @@
     <Filter Include="Manager\Fps">
       <UniqueIdentifier>{df93e0dc-2a5e-4c77-9dc7-b363ae875abc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager\Font">
-      <UniqueIdentifier>{c4224549-f6d0-4746-9689-ce933299872f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Manager\Resource">
       <UniqueIdentifier>{5f17f031-0183-4af4-aa17-677b76c8d83d}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,21 @@
     </Filter>
     <Filter Include="Manager\Input">
       <UniqueIdentifier>{ede72abe-582d-4f58-b984-d943e608ad2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\ImGui">
+      <UniqueIdentifier>{98a214ce-307f-4d0e-a727-8a734e782da1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\File\Font">
+      <UniqueIdentifier>{c4224549-f6d0-4746-9689-ce933299872f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AStar">
+      <UniqueIdentifier>{223d8bf0-5b43-43a4-8bf9-61c40fb4d190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{ddb1af2f-0192-4041-9e0c-27a57ffe28e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{be8683c3-f5a4-4eff-8514-33f62874ea3d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,12 +75,6 @@
     <ClCompile Include="Camera3D.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="RenderManager.cpp">
-      <Filter>Manager\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSystemManager.cpp">
-      <Filter>Manager\GameSystem</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\InputManager.cpp">
       <Filter>Manager\Input</Filter>
     </ClCompile>
@@ -84,8 +90,41 @@
     <ClCompile Include="AoEFan.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Manager\ImGuiManager.cpp">
+      <Filter>Manager\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\RenderManager.cpp">
+      <Filter>Manager\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\GameSystemManager.cpp">
+      <Filter>Manager\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_tables.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_widgets.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\backends\imgui_impl_dx11.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\backends\imgui_impl_win32.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NavGrid.cpp">
+      <Filter>AStar</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,9 +149,6 @@
     <ClInclude Include="Manager\ScreenFile.h">
       <Filter>Manager\File</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\FontFile.h">
-      <Filter>Manager\File</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\SceneManager.h">
       <Filter>Manager\Scene</Filter>
     </ClInclude>
@@ -123,7 +159,7 @@
       <Filter>Manager\Fps</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Fonts.h">
-      <Filter>Manager\Font</Filter>
+      <Filter>Manager\File\Font</Filter>
     </ClInclude>
     <ClInclude Include="Manager\ResourceManager.h">
       <Filter>Manager\Resource</Filter>
@@ -136,12 +172,6 @@
     </ClInclude>
     <ClInclude Include="Camera3D.h">
       <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderManager.h">
-      <Filter>Manager\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSystemManager.h">
-      <Filter>Manager\GameSystem</Filter>
     </ClInclude>
     <ClInclude Include="Manager\InputManager.h">
       <Filter>Manager\Input</Filter>
@@ -164,8 +194,56 @@
     <ClInclude Include="AoEFan.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="WeaponData.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\ImGuiManager.h">
+      <Filter>Manager\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\RenderManager.h">
+      <Filter>Manager\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\GameSystemManager.h">
+      <Filter>Manager\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_internal.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_rectpack.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_textedit.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_truetype.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\backends\imgui_impl_dx11.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\backends\imgui_impl_win32.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\FontFile.h">
+      <Filter>Manager\File\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="NavGrid.h">
+      <Filter>AStar</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
